@@ -1,0 +1,19 @@
+{
+  "name": "technical-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "hkk2018",
+  "license": "ISC",
+  "dependencies": {
+    "vuepress": "^1.2.0",
+    "vuepress-plugin-code-copy": "^1.0.4"
+  }
+}
