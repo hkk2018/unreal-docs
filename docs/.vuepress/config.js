@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'UE4筆記',
+    title: '星繪UE4文件',
     themeConfig: {
         nav: [
 
@@ -20,7 +20,10 @@ module.exports = {
             // fallback
             '/': [
                 '',        /* / */
-                // 'contact', /* /contact.html */
+                'coding-style', /* /contact.html */
+                'sop',
+                'event-dispatcher',
+                'quirks'
                 // 'about'    /* /about.html */
             ]
         }
