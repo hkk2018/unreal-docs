@@ -27,7 +27,8 @@ module.exports = {
                 'begginer-FAQ',
                 'sop',
                 'event-dispatcher',
-                'quirks'
+                'quirks',
+                'dist'
                 // 'about'    /* /about.html */
             ],
             // fallback
