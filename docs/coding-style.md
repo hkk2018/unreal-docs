@@ -1,4 +1,4 @@
-# Project Conventions
+# 規範
 
 ## Coding Style
 
@@ -15,4 +15,4 @@ Local Variable如果跟要使用的名稱衝到（Global Variable或者是函數
 
 依照檔案類型附上Prefix，如BP_MainCharacter、WBP_CardDeckEdition，詳情參考[asset-naming-conventions](https://github.com/Allar/ue4-style-guide#1-asset-naming-conventions-)。
 
-### Func
+<!-- ### Func -->

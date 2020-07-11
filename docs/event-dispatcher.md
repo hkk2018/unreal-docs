@@ -1,6 +1,6 @@
-# Event Dispatcher（事件分配器）
+# 引擎功能介紹
 
-## 概念
+## Event Dispatcher（事件分配器）
 ![Event Dispatcher](./assets/on-finish.png)
 
 A事件發生，會告知B、C、D...等事件要跟著發生。
