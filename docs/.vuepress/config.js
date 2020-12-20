@@ -29,11 +29,12 @@ module.exports = {
                 'event-dispatcher',
                 'quirks',
                 'dist',
-                'performance'
+                'performance',
+                'material'
                 // 'about'    /* /about.html */
             ],
             // fallback
-          
+
         }
     },
     plugins: [['@dovyp/vuepress-plugin-clipboard-copy', true]]
