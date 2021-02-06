@@ -30,7 +30,8 @@ module.exports = {
                 'quirks',
                 'dist',
                 'performance',
-                'material'
+                'material',
+                'env-design'
                 // 'about'    /* /about.html */
             ],
             // fallback
