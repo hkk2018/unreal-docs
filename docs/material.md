@@ -10,7 +10,8 @@
 
 ## UV mapping
 ### UV定義
-一般而言，(u,v)是指2D平面的座標，因為(x,y,z)已經拿來描述3D物體表面各點的位置。（p為point之意）
+一般而言，(u,v)是指2D平面的座標，因為(x,y,z)已經拿來描述3D物體表面各點的位置。（下圖p為point之意）
+
 ![uv-def](./assets/uv-mapping/600px-UVMapping.png)
 
 [官網說明](https://docs.unrealengine.com/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/UVChannels/index.html)
@@ -68,8 +69,12 @@ UV Channel 1
 以上便是紋理操作的基礎知識，弄懂之後才有辦法作一些材質的基本操作唷。
 
 ## Landscape
-landscape如果使用材質，則材質內的紋理會重複出現，此與一般plane的行為不同（1張texure放至最大）。
+landscape如果使用Landscape material，則其紋理會重複出現，此與一般plane的行為不同（1張texure放至最大）。
 如下圖，起初使用TexCoord並乘1（即等同未接TexCoord時之預設值），可見1張紋理對應Landscape上1格，
 而乘以0.5，可以看出超出Landscape之每格，只對應到原本紋理長寬的一半，且超過處會自動對應。
 
 ![landscape](./assets/landscape/Webp.net-gifmaker.gif)
+
+## 數學操作
+Append：純量a ``Append`` 純量b => 向量(a,b)，向量(a,b) ``Append`` 純量c => 向量(a,b,c)。  
+Multiply：純量乘純量或乘向量即一般相乘，向量相乘則為（x,y,z）\* (u,v,w) => (x\*u, y\*v, z\*w)。
