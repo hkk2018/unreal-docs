@@ -68,9 +68,8 @@ UV Channel 1
 以上便是紋理操作的基礎知識，弄懂之後才有辦法作一些材質的基本操作唷。
 
 ## Landscape
-相對於一般plane，紋理會填充至該平面而不重複，landscape如果使用材質，則材質內的紋理會重複出現。
+landscape如果使用材質，則材質內的紋理會重複出現，此與一般plane的行為不同（1張texure放至最大）。
 如下圖，起初使用TexCoord並乘1（即等同未接TexCoord時之預設值），可見1張紋理對應Landscape上1格，
 而乘以0.5，可以看出超出Landscape之每格，只對應到原本紋理長寬的一半，且超過處會自動對應。
-（此說明Landscape在xy平面上投影的各點P，本身都對應一個紀錄該從紋理上何處取點之(u,v)，且其(u,v)不限縮於0-1，是無限擴張的，否則超過處無法自動對應）
 
 ![landscape](./assets/landscape/Webp.net-gifmaker.gif)
