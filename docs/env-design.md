@@ -4,9 +4,9 @@
 1. 純環境Draw call一般須100以下。
 
 ## 效能檢測
-1. cmd(`鍵)輸入stat scenerendering，可查到Draw call（Mesh Draw Calls）。
-2. Draw call會受到選取（可用g鍵為切換game mode，以隱藏選取、輔助線及燈光符號）、開著MeshAsset等因素影響，檢測效能若出現非預期結果很可能與此有關。（經常發生：弄了老半天Draw Call還100多，全關了還有40多，不可能啊...啊MeshAssets開著沒開=.="）
-3. Draw call for LODn ≒ mesh數（instanced則同類只計1） * mat數 * 2（有陰影的話），同時間出現的LOD越多越多Draw call。
+1. cmd(`鍵)輸入stat scenerendering，可查到draw call（Mesh Draw Calls）。
+2. draw call會受到選取（可用g鍵切換為game mode，以隱藏選取、輔助線及燈光符號）、開著MeshAsset等因素影響，檢測效能若出現非預期結果很可能與此有關。（經常發生：弄了老半天Draw Call還100多，全關了還有40多，不可能啊......啊MeshAssets開著沒開=.="）
+3. Draw call for LODn ≒ mesh數（instanced則同類只計1） * mat數 * 2（有動態陰影的話），同時間出現的LOD越多越多Draw call。
 4. Lighting Build之前引擎會動態計算影子，即使是static的物件，所以Build之後才是真實值。（實測：mesh取消cast shadow跟Lighting Build完成後的結果一樣）[ref](https://forums.unrealengine.com/development-discussion/content-creation/116237-foliage-tool-and-draw-calls)
 
 ## 材質處理
@@ -28,7 +28,7 @@
 
 ## Foliage效能
 1. Foliage在開放世界可以藉由LOD優化效能，但在開發手遊時，場景中增加LOD反而會大幅提升Draw call。
-2. LOD必須從asset中調整，可以重設LOD之數量，特定LOD之tri count等，手遊建議直接只留LOD0並適當減少tri count。
+2. LOD必須從asset中調整，可以重設LOD之數量，特定LOD之tri count等，手遊建議直接只留LOD0並適當減少triangle count/vertice count。
 
 ## Landscape優化
 1. draw call數目 = n * component數 * section數，所以要減少後二者。[ref](https://zhuanlan.zhihu.com/p/80663129)
