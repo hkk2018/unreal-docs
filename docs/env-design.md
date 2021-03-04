@@ -36,3 +36,9 @@
 
 ## 小技巧
 1. 4.26版world outliner要一次收合資料夾要：1.shift_點擊根目錄小三角 2.釋放shift並再次點擊。（UE4整理物件動輒數百數千，資料夾又動不動展開，無此招則甚不便）[ref](https://forums.unrealengine.com/development-discussion/content-creation/59836-how-to-keep-closed-the-folders-in-world-outliner)
+
+## Blender基礎與工作流
+1. 控制視物遠近、角度的關鍵字：Navigating。（shift_`開啟第一人稱移動視角模式，WSAD移動）
+2. 點擊物件後tab切換至Edit Mode才可於材質面板逐面指定材質。
+3. UE4之Send to Unreal工具可實現一鍵輸出至當前之引擎Instance。
+4. 由於場景中物件最終會被合併（含材質），所以在無法或不便為物件繪製單一的UV texture的時候，可用mat slot的方式製作。

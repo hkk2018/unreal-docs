@@ -25,13 +25,13 @@ module.exports = {
                 'generic',
                 'coding-style', /* /contact.html */
                 'begginer-FAQ',
-                'sop',
                 'event-dispatcher',
                 'quirks',
                 'dist',
                 'performance',
                 'material',
-                'env-design'
+                'env-design',
+                'blender-modeling',
                 // 'about'    /* /about.html */
             ],
             // fallback
