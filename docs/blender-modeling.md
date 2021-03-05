@@ -22,12 +22,13 @@
 ## 常用幾何形狀製作
 ### 曲面光滑圓柱體（上下兩圓面平坦）
 1. 新增圓柱體並加上subdivision modifer（Catmull-Clark type），適當調整參數使其夠圓。
-2. 接下來要讓上下兩面保持平坦，先進入edit mode，然後以下3步任選其一：    
+2. 接下來要讓上下兩面保持平坦，先進入edit mode，然後以下4步任選其一：    
     * 利用Loop Subdivide，於軀幹新增loop並拉到貼齊上圓面，並再重複此操作一次。下圓面同前。
     * 利用Edge Loop選取上圓面的圓周，然後執行split=>Face by Edges（在點線面選取區之右側mesh選單內）。下圓面同前。（原理：Splitting an edge affects vertex normal generation at that edge, making the edge appear sharp）[ref](https://docs.blender.org/manual/zh-hant/2.92/modeling/modifiers/generate/edge_split.html)
     * 附加Edge split modifier，並將次序移到最前，然後以下2擇1：
         * 設置Edge Angle角度介於0~89度之間（大於該角度者會split）
         * 啟用Sharp Edges，並將上下兩圓周標記為sharp
+    * Bevel待補 
 
 [ref1](https://www.youtube.com/watch?v=9OqomK0HWew&ab_channel=Park3D)
 [ref2](https://www.youtube.com/watch?v=V7Qb0DfVRlA&ab_channel=RandomArtAttack)
