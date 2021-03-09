@@ -6,10 +6,12 @@
 2. 欲在場景中新增Mesh等物件，按shift_a（Add功能的快鍵）。
 3. 欲控制視物遠近、角度，shift_`開啟第一人稱移動視角模式，WSAD移動；平移視窗shift_MMB。（關鍵字：Navigating）。
 4. Cursor可用於決定新增物件的產生位置，可以shift_c重置位置，或按n開啟側欄=>view=>3D Cursor手動調整。
+5. 位移(g)、旋轉(r)、縮放(s)模式下，可以搭配按鍵x、y、z鎖定該軸移動；若只想在xy平面移動，則按shift_z。
+6. 若想使夾角圓滑化，先進入Edit Mode，選擇其中一個Edge，按ctrl_b（關鍵字：Bevel Edges，MMB調整切割數量）調動即可。
 
 ### Loop（環、圈）相關功能
 1. 欲環狀選取Edge（Edge Loop），alt_RMB點選該Edge（尚有Edge Ring、Face Loop）。
-2. 欲產生新的Loop，Edit Mode之下按ctrl_r（關鍵字：Loop Subdivide）。
+2. 欲產生新的Loop，Edit Mode之下按ctrl_r，MMB可調整圈數（關鍵字：Loop Subdivide）。
 3. 
 
 ## Modifier
@@ -20,6 +22,12 @@
 
 
 ## 常用幾何形狀製作
+
+### 中空圓柱體
+1. 新增Mesh=>Circle。
+2. Extrude成紙筒狀。
+3. 應用Solidify Modifier並調整厚度。
+
 ### 曲面光滑圓柱體（上下兩圓面平坦）
 1. 新增圓柱體並加上subdivision modifer（Catmull-Clark type），適當調整參數使其夠圓。
 2. 接下來要讓上下兩面保持平坦，先進入edit mode，然後以下4步任選其一：    
@@ -41,3 +49,16 @@
 
 [ref](https://www.youtube.com/watch?v=9OqomK0HWew&ab_channel=Park3D)
 
+## 異常排除
+1. 有時看起來很規律的模型，在施用modifier（ex：subdivision）後，在某些點行為異常，那麼這可能在建模上有些問題，這可以在Edit Mode底下使用Select All by Trait，然後在點線面模式間切換觀察。
+2. Blender的face如果vertex超過4個點可能會有些奇怪問題，比如成面時可能會略過某些點。(vertxt選取順序似乎也會影響成面演算法)
+3. 輸出至遊戲引擎，若有些面看不到，則有可能是因為Normal方向相反所致。在Blender中可以勾選Face Orientation查詢，藍色指外紅色指內。
+4. 輸入至遊戲引擎會四邊形（或>=4）會被自動轉換成三角形，此過程中可能因Normal計算錯誤而導致有些面看不到，故若有問題須在Blender處加上traianguate modifier後再輸出。
+
+[ref1](https://blender.stackexchange.com/questions/80455/strange-bug-with-the-subdivision-surface-modifier)
+[ref2](https://www.youtube.com/watch?v=clzstqtN6YQ&ab_channel=BailyDesign)
+[ref3](https://answers.unrealengine.com/questions/969180/mesh-imported-fbx-from-blender-appears-to-be-broke.html)
+
+
+## 進階觀念
+1. Shade Smooth是使Normal漸層化（Normal決定光影效果），可以使Mesh視覺上看起來圓滑（但不會改變外型） ，通常會搭配Object Data Properties（綠色三角形）選項中Normal項的Auto Smooth，以區分出何處須漸層化。
