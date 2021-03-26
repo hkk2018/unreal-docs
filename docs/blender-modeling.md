@@ -8,6 +8,7 @@
 4. Cursor可用於決定新增物件的產生位置，可以shift_c重置位置，或按n開啟側欄=>view=>3D Cursor手動調整。
 5. 位移(g)、旋轉(r)、縮放(s)模式下，可以搭配按鍵x、y、z鎖定該軸移動；若只想在xy平面移動，則按shift_z。
 6. 若想使夾角圓滑化，先進入Edit Mode，選擇其中一個Edge，按ctrl_b（關鍵字：Bevel Edges，MMB調整切割數量）調動即可。
+7. 欲新增Vertex，Edit Mode下ctrl_RMB點擊於空間任一點即可。
 
 ### Loop（環、圈）相關功能
 1. 欲環狀選取Edge（Edge Loop），alt_RMB點選該Edge（尚有Edge Ring、Face Loop）。
@@ -53,7 +54,7 @@
 1. 有時看起來很規律的模型，在施用modifier（ex：subdivision）後，在某些點行為異常，那麼這可能在建模上有些問題，這可以在Edit Mode底下使用Select All by Trait，然後在點線面模式間切換觀察。
 2. Blender的face如果vertex超過4個點可能會有些奇怪問題，比如成面時可能會略過某些點。(vertxt選取順序似乎也會影響成面演算法)
 3. 輸出至遊戲引擎，若有些面看不到，則有可能是因為Normal方向相反所致。在Blender中可以勾選Face Orientation查詢，藍色指外紅色指內。
-4. 輸入至遊戲引擎會四邊形（或>=4）會被自動轉換成三角形，此過程中可能因Normal計算錯誤而導致有些面看不到，故若有問題須在Blender處加上traianguate modifier後再輸出。
+4. 輸入至遊戲引擎會四邊形（或>=4）會被自動轉換成三角形，此過程中可能因Normal計算錯誤而導致有些面看不到，故若有問題須在Blender處加上traianguate modifier後再輸出。   
 
 [ref1](https://blender.stackexchange.com/questions/80455/strange-bug-with-the-subdivision-surface-modifier)
 [ref2](https://www.youtube.com/watch?v=clzstqtN6YQ&ab_channel=BailyDesign)
@@ -62,3 +63,8 @@
 
 ## 進階觀念
 1. Shade Smooth是使Normal漸層化（Normal決定光影效果），可以使Mesh視覺上看起來圓滑（但不會改變外型） ，通常會搭配Object Data Properties（綠色三角形）選項中Normal項的Auto Smooth，以區分出何處須漸層化。
+
+
+## 建模WorkFlow
+1. 針對目標模型製作各零件。
+2. 步驟繁複之過程建議隨過程進行備份（即複製一份，而複製如果不想產生新材質須用duplicate：shift_d，一般copy paste會產生新材質）
