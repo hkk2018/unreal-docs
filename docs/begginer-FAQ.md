@@ -6,4 +6,5 @@
 
 3. TopDown模式下新創地圖，結果人物卻不能走？新增Nav Mesh Bounds Volumn以涵蓋人物試試。
 
+4. Bp的子Class一旦啟用一些母Class有的事件，就等同於Override，母Class該事件的邏輯不會觸發，此時可在該事件（如BeginPlay）右鍵選擇Add call to parent function，即可執行母Class的事件。
 <!-- 3.  -->
