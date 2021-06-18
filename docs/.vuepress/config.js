@@ -4,7 +4,7 @@ module.exports = {
         nav: [
             { text: '概論', link: '/' },
             { text: '架構', link: '/架構/game-structure' },
-            // { text: '實作', link: '/實作/' },
+            { text: '實作', link: '/實作/' },
             { text: '功能', link: '/功能/' },
 
         ],
@@ -13,9 +13,9 @@ module.exports = {
             '/架構/': [
                 'game-structure'
             ],
-            // '/實作/': [
-            //     '', /* /bar/three.html */
-            // ],
+            '/實作/': [
+                'evil-zombie', /* /bar/three.html */
+            ],
             '/功能/': [
                 '', /* /bar/three.html */
             ],

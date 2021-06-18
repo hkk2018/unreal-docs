@@ -7,7 +7,7 @@
 5. 函數如果要回傳空物件，例如if最近敵人為true就回傳此敵人，false則返回空，則fasle處記得也要接Return Ndoe，否則函數會回傳上次執行所cached的回傳值，而非空物件。
 6. Bp Variable的Private其實是Protected，子代可以存取該Variable（但右鍵搜尋不到，只能透過Show Inherited Variables去找）。
 7. 將函數勾選為Pure，就可以不用多去連Exec線（白線），類似的例子如GetActorLocation等，所以使用上會經常為了減少連線而用。但Pure實際的效果其實是Cache計算結果，當同一Graph多重引用時，計算只會執行一次（一般的則是引用幾次重算幾次），而在絕大多數的場合都不需要重新計算，所以使用Pure一來讓Code好讀，二來節省效能，好處多多。
-8. 
+8. Set Timer By Function Name其函數必須不具參數，否則此函數會失效。
 
 ## Animation Blueprint
 1. 雖然創建ABP時需要選定骨骼，但是子類可以更改，此一特性使得ABP可以有一母類定義通用邏輯，子類再配置特定角色的骨骼並分配給角色BP。

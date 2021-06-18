@@ -36,6 +36,7 @@
 
 ## 小技巧
 1. 4.26版world outliner要一次收合資料夾要：1.shift_點擊根目錄小三角 2.釋放shift並再次點擊。（UE4整理物件動輒數百數千，資料夾又動不動展開，無此招則甚不便）[ref](https://forums.unrealengine.com/development-discussion/content-creation/59836-how-to-keep-closed-the-folders-in-world-outliner)
+2. 如果以特定攝影機角度來看場景（按Play不是人物而是場景畫面）：1.設置Camera Actor並調至所欲角度，並設置Auto Activate For Player 2.將目前使用之GameMode的Default Pawn調None（此步可省，如果不想要有人物的話才調）。
 
 ## Blender基礎與工作流
 1. 控制視物遠近、角度的關鍵字：Navigating。（shift_`開啟第一人稱移動視角模式，WSAD移動）
