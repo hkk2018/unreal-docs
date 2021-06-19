@@ -1,5 +1,7 @@
 基本觀念
 
+## 打包實際經驗
+1. 如果打包時檔案很大、很多Shader，很可能是系統將所有地圖都Cook了（有時候又不會，不知道...），此可由專案資料夾=>Saved=>Cooked查證。若是，一則刪除無用地圖，二則把所有地圖都放到一個資料夾，並在Project Setting中的Package頁，設置Directories to never cook。
 
 ### 1.Cannot create SoftObjectPath with short package name
 
