@@ -27,11 +27,14 @@ module.exports = {
                 'begginer-FAQ',
                 'event-dispatcher',
                 'quirks',
+                'package',
                 'dist',
                 'performance',
                 'material',
                 'env-design',
                 'blender-modeling',
+                'widget',
+                'project-setup'
                 // 'about'    /* /about.html */
             ],
             // fallback

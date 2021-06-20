@@ -18,6 +18,8 @@
 ![img](.assest/../assets/Screenshot_20210620-213553_EvilZombie.jpg)
 [嘗試過一些解法但無效或不實際](https://answers.unrealengine.com/questions/958844/solution-no-google-play-store-key-no-obb-found-and.html)，最後只好回到以apk+obb的方式上傳。（當然store key的部分應該沒問題）
 其實整個測試看下來，再加上aab檔的定義「App bundle 可以被分解成多個小區塊，Google Play Store 會將這些區塊重新組合為 apk 檔並提供使用者下載。」，可以合理推測，aab檔其實就等價於apk檔，而是真的不含資源檔的。
+[參考討論](https://forums.unrealengine.com/t/tutorial-how-to-create-android-app-bundle-at-unreal-engine/138830/6)
+[參考討論2](https://forums.unrealengine.com/t/android-app-bundle/126314/3)
 
 所以，如果你勾選Package game data inside .apk，讓obb含在apk檔之中，應該也可解，但是實際測試.aab檔從90多mb變成300多mb，超過了.aab檔150mb的大小限制而無法上傳到Google。這即使縮減obb檔，未來還是非常有機會超過的，所以此路不通，只好暫時回去用apk+obb。
 
