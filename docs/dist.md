@@ -13,7 +13,7 @@
 
 6.關於轉換成.aab，[按這裡](https://forums.unrealengine.com/development-discussion/android-development/1621046-android-app-bundle)
 
-7.Project Setting => ProjectName（影響安裝完之顯示名稱）
+7.Project Setting => Project Name（影響安裝完之顯示名稱）。若無效則去Android => Application Display Name修改。
 
 8.由於是使用.aab檔，而.aab並不支援obb檔，所以記得勾選Disable verify obb on first start/update，否則遊戲一開始就會跳這個錯誤導致無法開始。
 
@@ -23,12 +23,13 @@
 3. 把打包好的遊戲上傳。
 4. 在公開測試上傳遊戲（以Evil Zombie來說6/15上6/19審過）。
 5. 審查似乎不管遊戲內容，因為Evil Zombie下載後其實不能玩（進入遊戲前有報錯只能結束），但審查過了。
-6. 公開測試要審核。
+6. 公開測試要審核。(第一次要4天，之後1-2小時)
 7. 內部測試、封閉測試、公開測試之間Store Version不可相同。
-8. 內部測試推出後要到可以下載到最新版本，大約要等近1hr。（內部測試推出，電腦連到Google Play看到的是最新版本，但透過電腦安裝此正確版本到手機，手機安裝的仍是上一版本）
+8. 內部測試推出後要到可以下載到最新版本，大約要等近0-1hr。（內部測試推出，電腦連到Google Play看到的是最新版本，但透過電腦安裝此正確版本到手機，手機端會看到GooglePlay上仍是舊版本。第2次嘗試則直接安裝到最新版本，幾乎不用等，如果不是最新稍微重新進入頁面通常頁面資訊也會更新到最新。）
 
-# 更新
-記得要變更Store Version(如1->2)，不然會報錯。
+## 更新版本
+1. 記得要變更Store Version(如1->2)，不然會報錯。
+2. Project Setting => Android => Version Display Name 會出現在Google商店，手機上的應用程式資訊也會顯示（由此可判斷安裝版本為何）。
 
 
 

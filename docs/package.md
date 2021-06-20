@@ -1,7 +1,10 @@
-基本觀念
-
-## 打包實際經驗
+# 打包
+## 經驗
 1. 如果打包時檔案很大、很多Shader，很可能是系統將所有地圖都Cook了（有時候又不會，不知道...），此可由專案資料夾=>Saved=>Cooked查證。若是，一則刪除無用地圖，二則把所有地圖都放到一個資料夾，並在Project Setting中的Package頁，設置Directories to never cook。
+2. 如果Icon加不了（Could not mark image file for add），原因是Git，關了再加即可。[ref](https://answers.unrealengine.com/questions/906467/could-not-mark-image-file-for-add-when-changing-ic.html)
+
+## 編譯問題
+打包的編譯過程中很容易發生錯誤，一旦有錯誤，編譯就會失敗，而錯誤通常也不少，但大多是容易處理的，就不會特別說明，稍作調查即可解決，但若是難處理的，就會在底下紀錄解決經驗。
 
 ### 1.Cannot create SoftObjectPath with short package name
 
