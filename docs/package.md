@@ -1,4 +1,33 @@
 # 打包
+
+## 基本程序
+1.Project Settings -> Packaging -> Project -> 勾選For Distribution (否則上傳Google會以Debug版為由報錯)
+
+2.Build Configuration選Shipping。(同項1之Project區或者打包輸出下方的選項都可設置，是一樣的，兩處會同時連動)
+
+3.Project Settings中搜尋Distribtion Signing，沒填的話打包過程會報錯中止（ERROR: DistributionSigning settings are not all set.）。
+填法就照該區提供的超連結步驟走即可，簡單說就是去Android Studio生成KeyStore，然後把該檔複製到這區所指示的資料夾位置，並填妥各欄位。（生成過一個以後製作別的遊戲也可以用這個，因為這只是上傳金鑰，單純作上傳的身分確認用而已）
+
+4.Support arm64要勾（然後上傳arm64版本的檔案），不然上傳後Google會說你不符合啥64位元的設定。
+
+5.Project Setting => Project Name（影響安裝完之顯示名稱）。若無效則去Android => Application Display Name修改。
+
+
+## 關於以.aab檔發佈
+試著使用過.aab檔發布，但是會遇到著名的問題
+![img](.assest/../assets/Screenshot_20210620-213553_EvilZombie.jpg)
+[嘗試過一些解法但無效或不實際](https://answers.unrealengine.com/questions/958844/solution-no-google-play-store-key-no-obb-found-and.html)，最後只好回到以apk+obb的方式上傳。（當然store key的部分應該沒問題）
+其實整個測試看下來，再加上aab檔的定義「App bundle 可以被分解成多個小區塊，Google Play Store 會將這些區塊重新組合為 apk 檔並提供使用者下載。」，可以合理推測，aab檔其實就等價於apk檔，而是真的不含資源檔的。
+
+所以，如果你勾選Package game data inside .apk，讓obb含在apk檔之中，應該也可解，但是實際測試.aab檔從90多mb變成300多mb，超過了.aab檔150mb的大小限制而無法上傳到Google。這即使縮減obb檔，未來還是非常有機會超過的，所以此路不通，只好暫時回去用apk+obb。
+
+Google的aab檔，有支援一種類似obb檔的資源檔叫Play Asset Delivery (PAD) ，不過看起來跟UE的支援度還很差，所以就先擱置了。
+
+<!-- 5.現在google強制以androiod app bundle(.aab)的形式上傳，所以armv7也不要取消，製作.aab時會用到。 -->
+
+<!-- 6.關於轉換成.aab，[按這裡](https://forums.unrealengine.com/development-discussion/android-development/1621046-android-app-bundle) -->
+
+
 ## 經驗
 1. 如果打包時檔案很大、很多Shader，很可能是系統將所有地圖都Cook了（有時候又不會，不知道...），此可由專案資料夾=>Saved=>Cooked查證。若是，一則刪除無用地圖，二則把所有地圖都放到一個資料夾，並在Project Setting中的Package頁，設置Directories to never cook。
 2. 如果Icon加不了（Could not mark image file for add），原因是Git，關了再加即可。[ref](https://answers.unrealengine.com/questions/906467/could-not-mark-image-file-for-add-when-changing-ic.html)
