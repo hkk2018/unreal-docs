@@ -5,5 +5,3 @@
 2. 當遊戲畫面因長寬比不稱而有多餘黑區塊，導致全螢幕的Widget溢出時：概念上是要多一個ScaleBox去包Canvas，實作上是ScaleBox（橫向遊戲一般設Scale To Fit Y）包SizeBsox（要符合Camera的Aspect Ratio，如1.777=16:9，SizeBox可以設置1600x900）再包Canvas。[ref](https://forums.unrealengine.com/t/best-way-to-handle-widgets-and-screen-resolution/20123/7)
 
 
-
-## 

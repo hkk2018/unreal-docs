@@ -23,3 +23,14 @@ A事件發生，會告知B、C、D......等事件要跟著發生。
 ::: tip
 子類可在EventGraph放上母類具有的事件，其作用等同Override，母類在該事件宣告的程式碼不會執行，如要執行，要在子類的該事件上右鍵選Add call to parent function。
 :::
+
+## Localization
+### 使用概述
+UE4內建有翻譯系統，它透過Text類與Localization Dashboard完成。Text類是一種專門支援語言翻譯的類別，每個Text生成後，都可以選擇是否要翻譯，若要則系統會為此Text生成唯一的ID(Key)，而你在上面填的內容，則視為母語（Native）文本，你可以在Dashboard中設置何種語言為母語文本，設置好之後，在Dashboard可以幫你找出所有用Text的地方，然後你就可以根據母語文本去設置對應到其他語言的翻譯內容。
+
+### 參考
+有個概念後，可直接看實作示範，這樣最快。
+[官方文檔](https://docs.unrealengine.com/4.26/zh-CN/ProductionPipelines/Localization/)
+[實作示範](https://www.youtube.com/watch?v=UD2_TEgxkqs&ab_channel=UnrealEngine)
+[其他參考1](https://forums.unrealengine.com/t/localization-dashboard-preview-and-explanation-of-ue4s-text-localization-process/24650)
+[其他參考2](https://medium.com/@lojungyun/ue4-%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%B3%BB%E7%B5%B1%E4%BB%8B%E7%B4%B9-%E8%A8%AD%E5%AE%9A%E7%AF%87-5108ddc1e0df)

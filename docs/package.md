@@ -8,7 +8,7 @@
 3.Project Settings中搜尋Distribtion Signing，沒填的話打包過程會報錯中止（ERROR: DistributionSigning settings are not all set.）。
 填法就照該區提供的超連結步驟走即可，簡單說就是去Android Studio生成KeyStore，然後把該檔複製到這區所指示的資料夾位置，並填妥各欄位。（生成過一個以後製作別的遊戲也可以用這個，因為這只是上傳金鑰，單純作上傳的身分確認用而已）
 
-4.Support arm64要勾（然後上傳arm64版本的檔案），不然上傳後Google會說你不符合啥64位元的設定。
+4.Support arm64要勾（然後上傳arm64版本的apk檔），不然上傳後Google會說你不符合啥64位元的設定。
 
 5.Project Setting => Project Name（影響安裝完之顯示名稱）。若無效則去Android => Application Display Name修改。
 

@@ -6,7 +6,7 @@
 ## 效能檢測
 1. cmd(`鍵)輸入stat scenerendering，可查到draw call（Mesh Draw Calls）。
 2. draw call會受到選取（可用g鍵切換為game mode，以隱藏選取、輔助線及燈光符號）、開著MeshAsset等因素影響，檢測效能若出現非預期結果很可能與此有關。（經常發生：弄了老半天Draw Call還100多，全關了還有40多，不可能啊......啊MeshAssets開著沒開=.="）
-3. Draw call for LODn ≒ mesh數（instanced則同類只計1） * mat數 * 2（有動態陰影的話），同時間出現的LOD越多越多Draw call。
+3. Draw call for LODn ≒ mesh數（instanced mesh則同類只計1） * mat數 * 2（有動態陰影的話），同時間出現的LOD越多越多Draw call。
 4. Lighting Build之前引擎會動態計算影子，即使是static的物件，所以Build之後才是真實值。（實測：mesh取消cast shadow跟Lighting Build完成後的結果一樣）[ref](https://forums.unrealengine.com/development-discussion/content-creation/116237-foliage-tool-and-draw-calls)
 
 ## 材質處理
