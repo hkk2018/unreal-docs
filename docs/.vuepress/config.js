@@ -9,7 +9,7 @@ module.exports = {
 
         ],
         sidebar: {
-
+            /**  */
             '/架構/': [
                 'game-structure'
             ],
@@ -34,7 +34,9 @@ module.exports = {
                 'env-design',
                 'blender-modeling',
                 'widget',
-                'project-setup'
+                'project-setup',
+                'AI',
+                'bp-tips'
                 // 'about'    /* /about.html */
             ],
             // fallback

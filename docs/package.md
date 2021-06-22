@@ -15,7 +15,7 @@
 
 ## 關於以.aab檔發佈
 試著使用過.aab檔發布，但是會遇到著名的問題
-![img](.assest/../assets/Screenshot_20210620-213553_EvilZombie.jpg)
+![img](./assets/Screenshot_20210620-213553_EvilZombie.jpg)
 [嘗試過一些解法但無效或不實際](https://answers.unrealengine.com/questions/958844/solution-no-google-play-store-key-no-obb-found-and.html)，最後只好回到以apk+obb的方式上傳。（當然store key的部分應該沒問題）
 其實整個測試看下來，再加上aab檔的定義「App bundle 可以被分解成多個小區塊，Google Play Store 會將這些區塊重新組合為 apk 檔並提供使用者下載。」，可以合理推測，aab檔其實就等價於apk檔，而是真的不含資源檔的。
 [參考討論](https://forums.unrealengine.com/t/tutorial-how-to-create-android-app-bundle-at-unreal-engine/138830/6)
