@@ -28,9 +28,18 @@ A事件發生，會告知B、C、D......等事件要跟著發生。
 ### 使用概述
 UE4內建有翻譯系統，它透過Text類與Localization Dashboard完成。Text類是一種專門支援語言翻譯的類別，每個Text生成後，都可以選擇是否要翻譯，若要則系統會為此Text生成唯一的ID(Key)，而你在上面填的內容，則視為母語（Native）文本，你可以在Dashboard中設置何種語言為母語文本，設置好之後，在Dashboard可以幫你找出所有用Text的地方，然後你就可以根據母語文本去設置對應到其他語言的翻譯內容。
 
+String Table可以用來減少重複翻譯，例如A、B、C三處Text內容都是Apple，則在Dashboard會出現三次，但如果你在String Table中設置一項叫Apple，並讓該三處引用自String Table，則Dashboard只會出現一次Apple，所以就只要翻譯一次即可。
+
+::: warning
+Enum的元素名稱雖然也是Text，但在此用上String Table很容易發生異常，故建議不要在此設置String Table。
+
+異常內容：一設置就無法取消，然後假設Enum的內容是Atk、Def，且已經用上String Table了，而這時因為key有錯字，Atk這條你就刪掉新創一個，再去Enum指定這個新創的，這個新創的名字即使也是Atk，拿去Foorlop以原本Enum為Key的Map資料就會搜不到東西。
+:::
+
 ### 參考
 有個概念後，可直接看實作示範，這樣最快。
 [官方文檔](https://docs.unrealengine.com/4.26/zh-CN/ProductionPipelines/Localization/)
 [實作示範](https://www.youtube.com/watch?v=UD2_TEgxkqs&ab_channel=UnrealEngine)
 [其他參考1](https://forums.unrealengine.com/t/localization-dashboard-preview-and-explanation-of-ue4s-text-localization-process/24650)
 [其他參考2](https://medium.com/@lojungyun/ue4-%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%B3%BB%E7%B5%B1%E4%BB%8B%E7%B4%B9-%E8%A8%AD%E5%AE%9A%E7%AF%87-5108ddc1e0df)
+[其他參考3](https://answers.unrealengine.com/questions/750398/how-to-change-game-language-during-game-play.html)

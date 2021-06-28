@@ -3,7 +3,7 @@
 ### BP Naming
 1. 凡是在BluePrint之中的命名原則上全採**PascalCase**，`Variable`如Health、HitRate，`Function`或`Macro`等通常以**動詞**或**On**起始，如GetEnemy、OnDie、IsDead。
 2. 布林變數為例外，以b為前綴，例如bAlive。
-3. Local Variable一律前綴_Local。
+3. Local Variable一律前綴L_，如L_Health。
 
 1之理由：
 新增Variable或Function等的預設名字，或新增Component後系統自動添加的Variable皆為PascalCase。

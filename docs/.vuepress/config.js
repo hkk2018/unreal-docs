@@ -25,7 +25,7 @@ module.exports = {
                 // '',        /* / */
                 'coding-style', /* /contact.html */
                 'begginer-tutorial',
-                'event-dispatcher',
+                'engine-features',
                 'quirks',
                 'package',
                 'dist',
