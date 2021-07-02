@@ -14,5 +14,24 @@
 1. 記得要變更Store Version(如1->2)，不然會報錯。
 2. Project Setting => Android => Version Display Name 會出現在Google商店，手機上的應用程式資訊也會顯示（由此可判斷安裝版本為何）。
 
+## IAP
+要設置的東西零零碎碎不少，一個錯誤就無法成功
 
+https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Mobile/Android/InAppPurchases/
+https://answers.unrealengine.com/questions/952902/simple-way-to-add-in-app-purchase-on-android-game.html
+https://answers.unrealengine.com/questions/926244/android-in-app-purchase-1.html
+https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Mobile/Android/InAppPurchases/
 
+1. 測試時以內部、封閉測試版，不建議Local調試。
+2. 勾起Enable Google Play Support，並填妥該區內容。
+3. 若要測試是否連上Play Store，可以呼叫Show External Login UI，看是否能連接到帳戶。（Play 遊戲服務設定需填）
+4. Project Settings - Advanced APK Packaging - Extra Permissions需填入'com.android.vending.BILLING'及'android.permission.GET_ACCOUNTS'。
+5. 確定Plugin－Online Subsystem Google Play有啟用。
+
+game app id:
+![game app id](assets/game-app-id.jpg)
+
+Google Play License key
+![Google Play License key](assets/google-play-license-key.jpg)
+
+#隱私權

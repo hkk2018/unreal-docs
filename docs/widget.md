@@ -7,9 +7,11 @@
 
 ## 
 ### List View & Tile View
-概念：這兩者添加子元素的方法比較少見，首先你要在Designer頁設置Entry Widget Class（下方創建數量只是Preview用，正式跑遊戲不會有，必須在BP加），然後到Graph頁用AddItem去加，然而這邊並非加Widget，而是加該Widget要用到的資料（以Object類夾帶即可），系統就會用這個資料搭配剛填寫的Class去Render，而很可能就是系統為了效能而不讓玩家自行創建多個Widget填入。
+<!-- 概念：這兩者添加子元素的方法比較少見，首先你要在Designer頁設置Entry Widget Class（下方創建數量只是Preview用，正式跑遊戲不會有，必須在BP加），然後到Graph頁用AddItem去加，然而這邊並非加Widget，而是加該Widget要用到的資料（以Object類夾帶即可），系統就會用這個資料搭配剛填寫的Class去Render，而很可能就是系統為了效能而不讓玩家自行創建多個Widget填入。
 
 至於Widget跟資料的聯繫，則是透過實作OnListItemObjectSet，來取得，不過雷點就在這裡，如果在Entry Widget Class那區用加號新增子類，會產生一個有User List Entry的介面的User Widget，但就是沒有上述之OnListItemObjectSet，要User Object List Entry才有，而這必須自己手動設置。
 
 其他：
 1.Tile可以Wrap，List不行。
+[ref](https://forums.unrealengine.com/t/umg-list-how-do-i-go-about-using-tile-view/117499/3)
+[ref1](https://blog.csdn.net/weixin_39759600/article/details/111683135) -->

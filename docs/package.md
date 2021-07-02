@@ -58,3 +58,13 @@ Google的aab檔，有支援一種類似obb檔的資源檔叫Play Asset Delivery 
 下載後，編譯完就可以用VS開引擎（確認UE4.Sln檔要設成StartUp專案，詳[參官方文檔](https://docs.unrealengine.com/4.26/en-US/ProductionPipelines/DevelopmentSetup/BuildingUnrealEngine/)），開了之後即使你抓的版本是你專案的版本(比如說遊戲專案是4.26，你平常用4.26.2的引擎開，那你編譯的也是4.26.2的版本)，專案也無法直接開，而呈現類似版本不相容的樣子。這時就是點你要開的專案，然後選Copy一份的選項去開，開到後來會複製成功，可是會報編譯錯誤，這個不用管，只要複製成功，就有一個具有Sln專案檔遊戲專案，一樣去點開該Sln檔，就可以像之前一樣開啟專案。
 
 接下來就可以順利使用中斷點的條件來偵錯了，而找到這次錯誤來自於一個名為Status的變數，這變數是物件，但是初始值似乎是False，可能原本要創Object但一創出來Bool的時候就先按編譯之後才改變數型態成物件，導致初始值吃到Bool的。
+
+
+### ERROR: cmd.exe failed with args
+這個問題疑似是在改動Android Package Name發生的。
+![img](assets/android-package-name.png)
+最一開始我並不知道癥結點，只覺得沒改動什麼、引擎也沒當掉，就突然出錯了，很無言而已。那接下來就是單純除錯，先查了[討論串](https://answers.unrealengine.com/questions/867231/error-cmdexe-failed-with-args-1.html)，按照建議移除所有SDK Build Tool並裝最新版，再加更新一些其他周邊的東西，無法修復。
+
+後來就從Log再細查，因為在這個錯誤報出導致失敗時，該處的Log再前面一點有Android拋錯的詳細細節，根據這點我猜可能是特定版本的問題，所以我從最新版退到次新版（SDK Manager有個Show Package Details可以選擇版本），問題就解決了。
+
+不過隨後我上傳這個編譯好的包，因為上面的Android Package Name跟之前不符被Google擋下（這次編譯時我應該是有順便調動Package Name），我沒多想就把Package Name改回之前的再編譯一次。沒想到這次再調回去，又報一樣的錯了，且是在packagename.debug（程序名稱不精準）之類的附近出錯，我這才發現之前的錯誤可能就是與此有關。那因為討論串很多人把Intermidiate刪掉就好了，且安裝新的Build Tool就能沒事，根據這兩點，我猜新裝SDK Build Tool時會記錄Package Name於Intermidiate，之後就是作檢查，根據這假設我刪除Intermidiate後，就編譯成功了。
