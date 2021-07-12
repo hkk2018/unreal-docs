@@ -34,6 +34,7 @@ Google的aab檔，有支援一種類似obb檔的資源檔叫Play Asset Delivery 
 1. 如果打包時檔案很大、很多Shader，很可能是系統將所有地圖都Cook了（有時候又不會，不知道...），此可由專案資料夾=>Saved=>Cooked查證。若是，一則刪除無用地圖，二則把所有地圖都放到一個資料夾，並在Project Setting中的Package頁，設置Directories to never cook。
 2. 如果Icon加不了（Could not mark image file for add），原因是Git，關了再加即可。[ref](https://answers.unrealengine.com/questions/906467/could-not-mark-image-file-for-add-when-changing-ic.html)
 
+
 ## 編譯問題
 打包的編譯過程中很容易發生錯誤，一旦有錯誤，編譯就會失敗，而錯誤通常也不少，但大多是容易處理的，就不會特別說明，稍作調查即可解決，但若是難處理的，就會在底下紀錄解決經驗。
 
@@ -67,4 +68,11 @@ Google的aab檔，有支援一種類似obb檔的資源檔叫Play Asset Delivery 
 
 後來就從Log再細查，因為在這個錯誤報出導致失敗時，該處的Log再前面一點有Android拋錯的詳細細節，根據這點我猜可能是特定版本的問題，所以我從最新版退到次新版（SDK Manager有個Show Package Details可以選擇版本），問題就解決了。
 
-不過隨後我上傳這個編譯好的包，因為上面的Android Package Name跟之前不符被Google擋下（這次編譯時我應該是有順便調動Package Name），我沒多想就把Package Name改回之前的再編譯一次。沒想到這次再調回去，又報一樣的錯了，且是在packagename.debug（程序名稱不精準）之類的附近出錯，我這才發現之前的錯誤可能就是與此有關。那因為討論串很多人把Intermidiate刪掉就好了，且安裝新的Build Tool就能沒事，根據這兩點，我猜新裝SDK Build Tool時會記錄Package Name於Intermidiate，之後就是作檢查，根據這假設我刪除Intermidiate後，就編譯成功了。
+不過隨後我上傳這個編譯好的包，因為上面的Android Package Name跟之前不符被Google擋下（這次編譯時我應該是有順便調動Package Name），我沒多想就把Package Name改回之前的再編譯一次。沒想到這次再調回去，又報一樣的錯了，且是在packagename.debug（程序名稱不精準）之類的附近出錯，我這才發現之前的錯誤可能就是與此有關。那因為討論串很多人把Intermidiate刪掉就好了，且安裝新的Build Tool就能沒事，根據這兩點，我猜新裝SDK Build Tool時會記錄Package Name於Intermidiate，之後就是作檢查，所以刪掉此資料之後就是重新記錄而不會報錯。根據這假設我刪除Intermidiate後，就編譯成功了。
+
+### fatal error: UTF-16 (LE) byte order mark detected
+
+UATHelper: Packaging (Android (ETC2)):     C:/Users/hongk/Documents/Unreal Projects/DynamicCombatSys/Intermediate/Plugins/NativizedAssets/Android/Game/Intermediate/Build/Android/UE4/Shipping/NativizedAssets/Module.NativizedAssets.15_of_33.cpp(7,10): fatal error: UTF-16 (LE) byte order mark detected in 'C:/Users/hongk/Documents/Unreal Projects/DynamicCombatSy
+s/Intermediate/Plugins/NativizedAssets/Android/Game/Source/NativizedAssets/Private/NativizedAssets_Dependencies.cpp', but encoding is not supported
+
+當啟用Nativization時，遇到檔名有中文者會報出錯誤，如上錯誤訊息可以在NativizedAssets_Dependencies.cpp查找到中文字。本例是某張圖片因為夾帶了複製兩字導致編譯失敗。

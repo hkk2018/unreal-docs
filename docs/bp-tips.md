@@ -8,6 +8,7 @@
 6. Bp Variable的Private其實是Protected，子代可以存取該Variable（但右鍵搜尋不到，只能透過Show Inherited Variables去找）。
 7. 將函數勾選為Pure，就可以不用多去連Exec線（白線），類似的例子如GetActorLocation等，所以使用上會經常為了減少連線而用。但Pure實際的效果其實是Cache計算結果，當同一Graph多重引用時，計算只會執行一次（一般的則是引用幾次重算幾次），而在絕大多數的場合都不需要重新計算，所以使用Pure一來讓Code好讀，二來節省效能，好處多多。
 8. Set Timer By Function Name其函數必須不具參數，否則此函數會失效。
+9. 有時候變數巢得太深，每當在深處之矩陣新增元素時，面板常常會收合，所以每增一個元素就要開關一次，還是很麻煩（雖然右鍵點變數可Expand/Collapse）。但是，如果在Class Default區進行矩陣元素新增，就不會遇到這個問題。
 
 ## Animation Blueprint
 1. 雖然創建ABP時需要選定骨骼，但是子類可以更改，此一特性使得ABP可以有一母類定義通用邏輯，子類再配置特定角色的骨骼並分配給角色BP。

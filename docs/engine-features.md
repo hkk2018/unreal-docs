@@ -4,9 +4,9 @@
 ![Event Dispatcher](./assets/on-finish.png)
 
 A事件發生，會告知B、C、D......等事件要跟著發生。
-概念上如同Javascript的addEventListener，只是在OOP的設計模式中，是各類（B、C、D）去向某一類（A）註冊自己的CallBack函數。
+概念上如同Javascript的addEventListener，只是在OOP的設計模式中，是各類去向某一類註冊自己的CallBack函數（以「函數」來說只是幫助理解，即使在UE4中也可以以函數註冊，但通常是使用事件）。
 
-以「函數」來說只是幫助理解，更精確地說是「事件」本位（類似C#），以棒球作說明，有3個類別（class）：球、球員、裁判。設球被打擊到，球本身會觸發A事件即被擊中，而B事件屬於球員叫準備跑壘，C事件屬於裁判叫進行觀察。
+以棒球作說明，有3個類別（class）：球、球員、裁判。設球被打擊到（OnHit），球本身會觸發A事件飛出去，而B事件屬於球員叫準備跑壘，C事件屬於裁判叫進行觀察。
 
 這種情況，會在球類上創建Event Dispatcher，任何要觸發的事件，不論是自己或者別人的，都要在這邊註冊（Bind），當程式碼運行過程中要觸發這些註冊的事件，則利用呼叫（Call）的功能以觸發所有註冊的事件；所以上述的A事件，要在自身的BP綁定，B、C則是要引用球類實例，去把自己身上的事件註冊到球類的Event Dispatcher上。
 
@@ -43,3 +43,13 @@ Enum的元素名稱雖然也是Text，但在此用上String Table很容易發生
 [其他參考1](https://forums.unrealengine.com/t/localization-dashboard-preview-and-explanation-of-ue4s-text-localization-process/24650)
 [其他參考2](https://medium.com/@lojungyun/ue4-%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%B3%BB%E7%B5%B1%E4%BB%8B%E7%B4%B9-%E8%A8%AD%E5%AE%9A%E7%AF%87-5108ddc1e0df)
 [其他參考3](https://answers.unrealengine.com/questions/750398/how-to-change-game-language-during-game-play.html)
+
+## DataAsset
+DataAsset跟UObject的差異，只是它已經是實例，所以可以作為變數的預設值，一般的物件則必須在運行時實例化才可。
+通常是拿來存放一些公用的資料，比如說被動技能系統的Icon、敘述或相關參數等，這樣無論是在主畫面的UI，或者在遊戲中的技能選擇，都可以直接透過DataAsset取得資訊。
+
+然後DataAsset很容易遇到預設值遺失的問題，很可能是因為系統遺漏加載該DataAsset，所以需要在Asset Manager註冊。
+配置方法是重點，錯誤的話沒用。
+![img](assets/data-asset-config-wrong.jpg)
+不能選個母Class全包，沒用，要針對各子類去配置如下圖。
+![img](assets/data-asset-config-correct.jpg)
