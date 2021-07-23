@@ -37,9 +37,3 @@
 
 ## 容易莫名其妙壞掉的地方
 1. 如果選技能的文字、圖片不見了（通常在Editor開來玩如果遇到此狀況會報錯），要去BP_PassiveSkillManagerCompoent之PassiveSkillInfos、WB_PassiveSkillForList之SkillInfos與WB_PassiveSkillForBar之Infos（這個比較少壞），設置DA_PlayerPassiveSkillInfos。最正確的查法是用DA_PlayerPassiveSkillInfos的定義Class並以Reference Viewer查，即可查到所有要填此DA的檔案。另外，在Android中發生了主畫面地圖沒事，但進戰鬥地圖便喪失該DA預設值的情況，各種微調測約10次只有1次沒此狀況，跟天人討論後天人查到資料，最後是在asset manager設定後再測試就好了。(ref)[https://answers.unrealengine.com/questions/836900/i-have-some-blueprint-subclasses-of-primarydataass.html]
-
-
-## Migrate須要填寫正確才能運行的內容
-1. Project Setting => interatable & projectile
-2. input
-3. asset manager填passive skill DA之class與資產（這樣在Android才不會在某些地方遺失預設值）
