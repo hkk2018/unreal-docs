@@ -1,4 +1,21 @@
 # Evil Zombie
+版本4.26
+
+## 專案設置
+在Mirgrate時會用上，須皆配置正確才能正常運作。
+### Project Setting
+1. Collision => Object Channels => 新增Interactable，Default Response為Block。
+2. Collision => Trace Channels => 新增Projectile，Default Response為Ignore。
+3. Asset Manager填用到的DataAssets（這樣在Android才不會在某些地方遺失預設值）
+4. Input（從原專案Input頁Export出來）
+5. Navigation Mesh => RunTime => Runtime Generation => Dynamic
+6. 於Maps & Modes中，Game instance設置XhGameInstance，起始地圖設MainPage。
+
+### Plugins
+1. Firebase - Features
+2. HDRIBackdrop
+
+### 其他
 
 ## 場景
 ### 地圖配置

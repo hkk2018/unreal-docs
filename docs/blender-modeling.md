@@ -53,7 +53,7 @@
 ## 異常排除
 1. 有時看起來很規律的模型，在施用modifier（ex：subdivision）後，在某些點行為異常，那麼這可能在建模上有些問題，這可以在Edit Mode底下使用Select All by Trait，然後在點線面模式間切換觀察。
 2. Blender的face如果vertex超過4個點可能會有些奇怪問題，比如成面時可能會略過某些點。(vertxt選取順序似乎也會影響成面演算法)
-3. 輸出至遊戲引擎，若有些面看不到，則有可能是因為Normal方向相反所致。在Blender中可以勾選Face Orientation查詢，藍色指外紅色指內。
+3. 輸出至遊戲引擎，若有些面看不到，則有可能是因為Normal方向相反所致。在Blender中可以勾選Face Orientation查詢，藍色指外紅色指內。（調整：Edit Mode=>Mesh=>Normals）
 4. 輸入至遊戲引擎會四邊形（或>=4）會被自動轉換成三角形，此過程中可能因Normal計算錯誤而導致有些面看不到，故若有問題須在Blender處加上traianguate modifier後再輸出。   
 
 [ref1](https://blender.stackexchange.com/questions/80455/strange-bug-with-the-subdivision-surface-modifier)
