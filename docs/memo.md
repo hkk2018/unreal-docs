@@ -16,3 +16,11 @@ point light沒movable顯現不出地板反光的感覺
 
 (ue4 shadow didnt remove after level unloaded)
 https://answers.unrealengine.com/questions/171075/directional-light-shadows-through-objects.html
+
+
+
+
+render target拍照work flow
+1.拍完創static mat然後輸出
+2.gimp去完背輸出時還原png預設值（否則打開圖片看起來很暗）
+3.丟到壓縮網站壓縮後放進引擎勾選sRGB 
