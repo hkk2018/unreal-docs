@@ -47,3 +47,8 @@ https://privacy-b9da8.web.app/
 1. 查詢Logk位置（要產出Log要有寫入Storage的權限但是我還是沒看到log...）[ref](https://answers.unrealengine.com/questions/134079/where-can-i-find-the-ue4-log-file-on-android-devic.html)
 2. 可以在Android的Log訊息中過濾出標籤以UE4的內容。[ref](https://forums.unrealengine.com/t/debugging-mobile/56094/2)
         adb logcat -s UE4 -s debug -s DEBUG
+
+## Google Analytics
+1. 使用Firebase - Features插件
+2. Editor中無用，但直接安裝到手機上就有效，不用上傳到GooglePlay。
+

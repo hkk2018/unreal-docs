@@ -12,6 +12,8 @@
 
 5.Project Setting => Project Name（影響安裝完之顯示名稱）。若無效則去Android => Application Display Name修改。
 
+6.Android Package Name一旦上傳到Play之後就不可更改，只能重開新專案，須小心。（打包後似乎就不可改了，印象中編譯會報錯，刪除intermediate可以繞過）
+
 
 ## 關於以.aab檔發佈
 試著使用過.aab檔發布，但是會遇到著名的問題

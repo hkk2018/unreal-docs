@@ -15,7 +15,7 @@
 7. Platfroms => Android，因為啟用眾多，所以須整頁Export（注意KeyStore檔案也要有，可從源專案複製過來，詳看Distribution Signing之Key Store欄。另外Android Package Name要跟原專案一樣，因為Google Play Console的要求，且此名在Google Play無法更改。）
 8. 依循指南降低打包體積。[ref](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Mobile/Android/ReducingAPKSize/)
 9. BuildConfiguration => Shipping, 且勾起For Distribution。
-10. 
+10. 確認ExternalFilesDir是否已勾起（勾起才能成功save game，若如點7有整頁輸出應已設置）
 
 點8使用中：Create compressed cooked package
 
