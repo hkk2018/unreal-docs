@@ -16,6 +16,7 @@
 8. 依循指南降低打包體積。[ref](https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/Mobile/Android/ReducingAPKSize/)
 9. BuildConfiguration => Shipping, 且勾起For Distribution。
 10. 確認ExternalFilesDir是否已勾起（勾起才能成功save game，若如點7有整頁輸出應已設置）
+11. FPS固定在30以節省效能。
 
 點8使用中：Create compressed cooked package
 
@@ -40,13 +41,23 @@
 
 ## 場景
 ### 地圖配置
-需要：
+
+1. Directional Light
+2. HDRIBackdrop => Skylight Component => Details => Sky Distance Threshold，設為預設值，否則在手機上會出現螢光異常。
+3. Block vols以限制人物與怪物不超出視覺範圍
+4. 為了投射影子少數場景物件採實景
+
+### 場景HDRI製作
+1. 攝影機位置(-1150,0,1000)，角度(0,-35,0)，FOV=55。
+2. SceneCaputureCube與攝影機同位置、角度，RenderTarget參數不用動，但Create Static Texture時須將Compress Setting設為Default以節省大小。
+
+<!-- 需要：
 1. NavMesh
 2. 地板要取消勾選CastShadow，並在Tag標註ground（詳閱：卸載地圖仍有陰影之問題）。
 3. Level Bp中有隨機性的配置，須根據層數大約配置變化內容（變化數約大於等於層數）。
 
 不需要：
-1. Directional Light，因為在Root Level（MainLevel）有DL了。
+1. Directional Light，因為在Root Level（MainLevel）有DL了。 -->
 
 ### 卸載地圖仍有陰影之問題
 由於在Android上，利用LevelStream卸載地圖仍會保留物品所產生的陰影（Windows沒這問題），而這陰影就會投射到下一層導致視覺干擾，所以目前的實際解決方法是利用鏡頭往下帶的時機，把舊圖的物品藏起來，這個須注意：
