@@ -35,6 +35,9 @@ Enum的元素名稱雖然也是Text，但在此用上String Table很容易發生
 
 異常內容：一設置就無法取消，然後假設Enum的內容是Atk、Def，且已經用上String Table了，而這時因為key有錯字，Atk這條你就刪掉新創一個，再去Enum指定這個新創的，這個新創的名字即使也是Atk，拿去Foorlop以原本Enum為Key的Map資料就會搜不到東西。
 :::
+::: warning
+Gather Text發生錯誤有可能是因為使用Git版控導致的，暫時關掉版控可以解決此異常。
+:::
 
 ### 參考
 有個概念後，可直接看實作示範，這樣最快。

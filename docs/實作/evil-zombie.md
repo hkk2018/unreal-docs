@@ -46,6 +46,7 @@
 2. HDRIBackdrop => Skylight Component => Details => Sky Distance Threshold，設為預設值，否則在手機上會出現螢光異常。
 3. Block vols以限制人物與怪物不超出視覺範圍
 4. 為了投射影子少數場景物件採實景
+5. Nav Mesh
 
 ### 場景HDRI製作
 1. 攝影機位置(-1150,0,1000)，角度(0,-35,0)，FOV=55。
