@@ -18,3 +18,7 @@
 ### Flow Control
 1. Notify Observer：On Result Change => 有變無、無變有時觸發Abort，On Value Change => 值改變（物件Ref改變或者有無之變動）觸發Abort。[ref](https://www.youtube.com/watch?v=PcBV-X5R9dE&list=PLSlkDq2rO1t47gMJ0GdO5aSTfOKy_TTln&index=12&ab_channel=MathewWadstein)
 2. Obserer aborts：none表不特別去中斷（但下次經過此條件時不會執行），self表該Node底下的都中斷，lower priority表更右的都不會執行但自己本身不中斷，both表sefl + lower priority。[ref](https://www.youtube.com/watch?v=kEI4Ez-WnJQ&list=PLSlkDq2rO1t47gMJ0GdO5aSTfOKy_TTln&index=8&ab_channel=MathewWadstein)
+
+
+### Task
+1. Task物件建立後就會一直存在，不隨行為樹事件的執行重新產生（意即當執行時記得Reset變數）。

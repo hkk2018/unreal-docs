@@ -51,6 +51,16 @@
 ### 場景HDRI製作
 1. 攝影機位置(-1150,0,1000)，角度(0,-35,0)，FOV=55。
 2. SceneCaputureCube與攝影機同位置、角度，RenderTarget參數不用動，但Create Static Texture時須將Compress Setting設為Default以節省大小。
+3. Use Camera Projection。
+
+### HDRI Backdrop調陰影
+1. cubemap=>GrayLightTextureCube
+2. ldf(lighting distance factor)： 0.5=>1(陰影似乎會稍微變濃一點，但不明顯)
+3. skylight compoent =>intensity(=ambient)：1=>0.08（影響人物身上的陰影暗度）
+
+### 陰影其他問題
+在某些手機上陰影很淡，跳動時可見陰影加深，看起來跟距離有些關係。經過調查發現須調整Dynamic Shadow Distance MovableLight（本專案皆用movable light），設置約3000問題解決。把玩此參數可以推測，距離設置越大，陰影濃度會被稀釋掉，所以設置到夠用的程度即可。
+[ref](https://answers.unrealengine.com/questions/819327/dynamic-shadows-on-mobile-disappear-on-different-c.html)
 
 <!-- 需要：
 1. NavMesh
